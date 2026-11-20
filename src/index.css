@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-cosmic-950: #120B24;
+  --color-cosmic-900: #1B1233;
+  --color-cosmic-850: #21163E;
+  --color-cosmic-800: #291C4D;
+  --color-cosmic-700: #3A2968;
+  --color-cosmic-border: #382864;
+
+  --color-lime-pulse: #B8FF3B;
+  --color-sky-signal: #38BDF8;
+  --color-solar-orange: #FF7A2F;
+  --color-star-ink: #F6F3FF;
+  --color-star-muted: #BEB4DE;
+  --color-star-dim: #8D81B3;
+}
+
+@layer base {
+  html {
+    background-color: #120B24;
+    color: #F6F3FF;
+    font-family: var(--font-sans);
+    letter-spacing: 0.01em;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Custom subtle cosmic scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #120B24;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #382864;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #513B8C;
+  }
+}
+
+@keyframes syzygy-spin-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes syzygy-spin-ccw {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes syzygy-core-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.09);
+    opacity: 1;
+  }
+}
+
+.syzygy-orbit-cw {
+  transform-box: view-box;
+  transform-origin: 20px 20px;
+  animation: syzygy-spin-cw 18s linear infinite;
+}
+
+.syzygy-orbit-ccw {
+  transform-box: view-box;
+  transform-origin: 20px 20px;
+  animation: syzygy-spin-ccw 11s linear infinite;
+}
+
+.syzygy-core-breathe {
+  transform-box: view-box;
+  transform-origin: 20px 20px;
+  animation: syzygy-core-pulse 4.5s ease-in-out infinite;
+}
+
+.group:hover .syzygy-orbit-cw {
+  animation-duration: 6s;
+}
+
+.group:hover .syzygy-orbit-ccw {
+  animation-duration: 4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

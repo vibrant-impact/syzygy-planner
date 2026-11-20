@@ -1,0 +1,6 @@
+{
+  "name": "Syzygy — Astrological Transit & Cosmic Alignment Planner",
+  "description": "A personalized astrological transit planner and cosmic alignment scheduler tracking planetary shifts, retrogrades, moon phases, natal activations, alignment rituals, and personal reflections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
